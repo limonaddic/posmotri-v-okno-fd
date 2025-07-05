@@ -33,6 +33,7 @@ blockquote,
 fieldset {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 ul,
@@ -143,12 +144,12 @@ ol {
 }
 
 .search-form__fieldset-title {
-color: #FFF;
-font-family: "Fira Sans Condensed";
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  color: #FFF;
+  font-family: "Fira Sans Condensed";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .title {
@@ -190,5 +191,75 @@ line-height: normal;
   font-style: normal;
   font-weight: 400;
   line-height: 16.2px; /* 90% */
-  line-clamp: 1;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+
+.search-form__textfield {
+  background-color: #1b1919;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+  border-left: none;
+  border-right: none;
+  width: 225px;
+  height: 27px;
+  color: rgba(255, 255, 255, 0.70);
+  font-family: "Fira Sans Condensed";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  appearance: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #FFF;
+  outline-offset: 1px;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: 1px solid #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: white;
+}
+ /*
+ Факультативный шаг.
+ Когда чекбокс в фокусе — добавьте границу вокруг с использованием outline .
+ Если вы применяли псевдокласс :has() для текстового инпута, здесь тоже будет работать это правило.
+ Вам не придётся прописывать отдельно состояние :focus и :focus-visible для чекбокса.
+ Но если вы пошли другим путём, подумайте, как добиться того,
+ чтобы состояние :focus не создавало обводку у родительского элемента, а состояние :focus-visible создавало
+ */
+
+ .search-form__label:has(.search-form__checkbox):hover {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
 }
