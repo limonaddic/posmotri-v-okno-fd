@@ -117,6 +117,11 @@ ol {
   gap: 30px;
 }
 
+/*.content__list-item {
+  padding-left: 3px;
+  padding-right: 3px;
+}пока не вижу смысла в этом свойстве*/
+
 .content__list-item:last-child {
   padding-bottom: 30px;
 }
@@ -124,6 +129,31 @@ ol {
 .content__video-card {
   display: flex;
   align-items: flex-start;
+}
+
+.content__card-link_current { /*а чё, а где делся фон?*/
+  background-color: #545050;
+}
+
+.content__list-item:active {
+    background-color: #545050;
+}
+
+.content__list-item:hover { /*почему-то нет подчёркивания у заголовка в Chrome, в Firefox есть*/
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.content__list-item:focus {
+  outline: none;
+}
+
+.content__list-item:focus-visible {
+  outline: 1px solid #FFF;
 }
 
 .content__video-card-description-container {
@@ -221,13 +251,16 @@ ol {
   appearance: none;
 }
 
-.search-form__textfield:focus {
-  outline: none;
-}
+
 
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #FFF;
   outline-offset: 1px;
+}
+
+.search-form__textfield:focus {
+  outline: 0;
+  border: 0;
 }
 
 .search-form__checkbox-list {
