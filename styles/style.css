@@ -117,6 +117,10 @@ ol {
   gap: 30px;
 }
 
+.content__list-item:last-child {
+  padding-bottom: 30px;
+}
+
 .content__video-card {
   display: flex;
   align-items: flex-start;
@@ -201,7 +205,7 @@ ol {
 }
 
 .search-form__textfield {
-  background-color: #1b1919;
+  background-color: transparent;
   border-top: 1px solid #FFF;
   border-bottom: 1px solid #FFF;
   border-left: none;
@@ -262,4 +266,47 @@ ol {
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
+}
+
+.button {
+  display: flex;
+  height: 34px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #FFF;
+  background-color: transparent;
+  color: #FFF;
+  text-align: center;
+  font-family: "Fira Sans Condensed";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.button:focus {
+  outline: 1px solid #FFF;
+  outline-offset: 1px;
+}
+
+.button:hover {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+
+}
+
+.button:active {
+  background: #545050;
+}
+
+.search-form__submit-button {
+  width: 194px;
+}
+
+.more-button {
+  width: 100%;
 }
