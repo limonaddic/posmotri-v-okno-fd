@@ -55,37 +55,34 @@ ol {
 }
 
 .visually-hidden {
-  position: absolute; /* элемент вырывают из потока */
-  width: 1px; /* делают элемент очень маленьким, но таким, чтобы не пропал совсем */
+  position: absolute; 
+  width: 1px; 
   height: 1px;
-  margin: -1px; /* элемент убирают из поля зрения, сдвинув на размер самого себя */
-  padding: 0; /* обнуляют отступы, они есть у некоторых элементов по умолчанию */
-  border: 0; /* убирают границу, она тоже может быть у каких-то элементов */
-  clip: rect(0 0 0 0); /* это свойство обрезает видимую область до нулевого значения */
-  overflow: hidden; /* на всякий случай скрывают видимое за пределами блока */
+  margin: -1px; 
+  padding: 0; 
+  border: 0; 
+  clip: rect(0 0 0 0); 
+  overflow: hidden;
 }
 
 .content {
   max-width: 1140px;
   max-height: 534px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "result details";
-  column-gap: 30px;
-  justify-content: center;
-  align-content: end;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: end;
 }
 
 .result {
-  grid-area: result;
-  align-self: end;
   display: flex;
+  width: 711px;
   flex-direction: column;
   gap: 16px;
 }
 
 .result__video-container {
-  width: 711px;
+  width: 100%;
   height: 386px;
   position: relative;
 }
@@ -104,6 +101,7 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
+  width: 399px;
   gap: 26px;
   grid-area: details;
   max-height: 534px;
@@ -121,8 +119,6 @@ ol {
 }
 
 .content__list-item {
-  /*padding-left: 3px;
-  padding-right: 3px;пока не вижу смысла в этом свойстве*/
   cursor: pointer;
 }
 
@@ -169,7 +165,8 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  flex: 0 0 50%;
+  max-width: 50%;
+  height: 103px;
   object-fit: cover;
   object-position: center;
 }
@@ -178,6 +175,7 @@ ol {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
+  align-self: start;
   gap: 5px;
 }
 
@@ -215,11 +213,11 @@ ol {
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%; /* 30px */
+  line-height: 100%;
   text-transform: uppercase;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis; /* Многоточие */
+  text-overflow: ellipsis;
 }
 
 .content__video-card-description {
@@ -228,7 +226,7 @@ ol {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16.2px; /* 90% */
+  line-height: 16.2px;
 }
 
 .search-form__label {
@@ -288,14 +286,6 @@ ol {
   height: 15px;
   background-color: white;
 }
- /*
- Факультативный шаг.
- Когда чекбокс в фокусе — добавьте границу вокруг с использованием outline .
- Если вы применяли псевдокласс :has() для текстового инпута, здесь тоже будет работать это правило.
- Вам не придётся прописывать отдельно состояние :focus и :focus-visible для чекбокса.
- Но если вы пошли другим путём, подумайте, как добиться того,
- чтобы состояние :focus не создавало обводку у родительского элемента, а состояние :focus-visible создавало
- */
 
  .search-form__label:has(.search-form__checkbox):hover {
   text-decoration-line: underline;
