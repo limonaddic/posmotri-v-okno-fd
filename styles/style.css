@@ -87,6 +87,7 @@ ol {
 .result__video-container {
   width: 711px;
   height: 386px;
+  position: relative;
 }
 .result__video {
   width: 100%;
@@ -110,6 +111,7 @@ ol {
 
 .content__list-container {
   overflow: auto;
+  position: relative;
 }
 
 .content__list {
